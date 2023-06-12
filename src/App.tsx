@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './App.scss';
+import Search from './Search';
+import Table from './Table';
+import RankingChart from './RankingChart';
 
 function App() {
+  const [displayResult, setDisplayResult] = useState<{}[]>([]);
+  const [typeOfRes, setTypeofRes] = useState('table');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-wrapper">
+      <h1>F1 Formula Results</h1>
+      <h4>
+        Please select from the options below to display the racing results
+      </h4>
+      <Search setDisplayResult={setDisplayResult} />
+      <div className="result">
+        {displayResult.length ? (
+          <ul>
+            <li onClick={() => setTypeofRes('table')}>Table</li>
+            <li onClick={() => setTypeofRes('chart')}>Chart</li>
+          </ul>
+        ) : null}
+
+        {typeOfRes === 'table' ? (
+          <Table displayResult={displayResult} />
+        ) : (
+          <RankingChart displayResult={displayResult} />
+        )}
+      </div>
     </div>
   );
 }

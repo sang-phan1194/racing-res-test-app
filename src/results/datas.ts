@@ -49,7 +49,5 @@ race2023.forEach((e) => {
   const addYear = { ...e, year: 2023 };
   resultByRaces.push(addYear);
 });
-// console.log(resultByTeams)
-// console.log(resultByRaces)
 
 export { resultByDrivers, resultByTeams, resultByRaces };

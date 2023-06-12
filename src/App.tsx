@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import './App.scss';
 import Search from './Search';
 import Table from './Table';
 import RankingChart from './RankingChart';
+import { RaceData } from './types';
+import './App.scss';
 
 function App() {
-  const [displayResult, setDisplayResult] = useState<{}[]>([]);
+  const [displayResult, setDisplayResult] = useState<RaceData[]>([]);
   const [typeOfRes, setTypeofRes] = useState('table');
   return (
     <div className="app-wrapper">

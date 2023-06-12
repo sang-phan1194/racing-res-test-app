@@ -1,28 +1,31 @@
-import React from 'react';
+import { RaceDataProps } from './types';
 import { Bar } from 'react-chartjs-2';
-import { Chart, LinearScale, CategoryScale, BarController, BarElement } from 'chart.js';
+import {
+  Chart,
+  LinearScale,
+  CategoryScale,
+  BarController,
+  BarElement
+} from 'chart.js';
 
-function RankingChart(props: any) {
+function RankingChart(props: RaceDataProps) {
   const { displayResult } = props;
   const checkKey = 'position' in displayResult[0];
-  let dataForChart: any[] = [];
-  let labelForChart: any[] = [];
+  let dataForChart: number[] = [];
+  let labelForChart: string[] = [];
   if (checkKey && 'driver' in displayResult[0]) {
     displayResult.forEach((item: any) => {
       dataForChart.push(+item['pts']);
       labelForChart.push(item['driver']);
     });
-    console.log(dataForChart, labelForChart);
   }
   if (checkKey && 'team' in displayResult[0]) {
     displayResult.forEach((item: any) => {
       dataForChart.push(+item['pts']);
       labelForChart.push(item['team']);
     });
-    // console.log(dataForChart, labelForChart)
   }
   Chart.register(CategoryScale, LinearScale, BarController, BarElement);
-
 
   const data = {
     labels: labelForChart,
@@ -30,7 +33,7 @@ function RankingChart(props: any) {
       {
         label: 'Ranking chart',
         data: dataForChart,
-        backgroundColor: 'rgba(75,192,192,0.2)',
+        backgroundColor: '#009688',
         borderColor: 'rgba(75,192,192,1)',
         borderWidth: 1
       }

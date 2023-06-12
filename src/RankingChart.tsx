@@ -5,7 +5,8 @@ import {
   LinearScale,
   CategoryScale,
   BarController,
-  BarElement
+  BarElement,
+  Tooltip
 } from 'chart.js';
 
 function RankingChart(props: RaceDataProps) {
@@ -25,16 +26,22 @@ function RankingChart(props: RaceDataProps) {
       labelForChart.push(item['team']);
     });
   }
-  Chart.register(CategoryScale, LinearScale, BarController, BarElement);
+  Chart.register(
+    CategoryScale,
+    LinearScale,
+    BarController,
+    BarElement,
+    Tooltip
+  );
 
   const data = {
     labels: labelForChart,
     datasets: [
       {
-        label: 'Ranking chart',
+        label: '',
         data: dataForChart,
-        backgroundColor: '#009688',
-        borderColor: 'rgba(75,192,192,1)',
+        backgroundColor: '#be0404',
+        borderColor: '',
         borderWidth: 1
       }
     ]
@@ -42,7 +49,14 @@ function RankingChart(props: RaceDataProps) {
   const options = {
     scales: {
       y: {
-        beginAtZero: false
+        beginAtZero: true
+      }
+    },
+    plugins: {
+      tooltip: {
+        enabled: true,
+        mode: 'index' as 'index',
+        intersect: false
       }
     }
   };
@@ -51,6 +65,7 @@ function RankingChart(props: RaceDataProps) {
     <div className="chart-wrapper">
       {checkKey ? (
         <>
+          <h4>Ranking chart by points</h4>
           <Bar data={data} options={options} />
         </>
       ) : (

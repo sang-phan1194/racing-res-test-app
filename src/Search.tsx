@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { resultByDrivers, resultByRaces, resultByTeams } from './results/datas';
 import { FormEvent } from 'react';
+import { RaceData } from './types';
 
-function Search(props: any) {
+function Search(props: {setDisplayResult: React.Dispatch<React.SetStateAction<RaceData[]>>}) {
   const { setDisplayResult } = props;
   const [year, setYear] = useState<number>(2023);
   const [filterField, setFilterField] = useState<string>('race');

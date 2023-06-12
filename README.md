@@ -15,7 +15,7 @@ git clone https://github.com/sang-phan1194/racing-res-test-app
 
 
 ### Navigate to the project directory:
-cd your-project
+cd racing-res-test-app
 
 ### Install the dependencies:
 yarn install / npm install

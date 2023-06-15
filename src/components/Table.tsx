@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { RaceDataProps } from './types';
+import { RaceDataProps } from '../types';
 
 function Table(props: RaceDataProps) {
   const { displayResult } = props;

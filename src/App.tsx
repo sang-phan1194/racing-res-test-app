@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import Search from './Search';
-import Table from './Table';
-import RankingChart from './RankingChart';
+import {Search, RankingChart, Table} from "./components"
 import { RaceData } from './types';
 import './App.scss';
 

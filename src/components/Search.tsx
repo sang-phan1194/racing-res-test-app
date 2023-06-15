@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { resultByDrivers, resultByRaces, resultByTeams } from './results/datas';
+import { resultByDrivers, resultByRaces, resultByTeams } from '../results/datas';
 import { FormEvent } from 'react';
-import { RaceData } from './types';
+import { RaceData } from '../types';
 
 function Search(props: {setDisplayResult: React.Dispatch<React.SetStateAction<RaceData[]>>}) {
   const { setDisplayResult } = props;
@@ -45,13 +45,11 @@ function Search(props: {setDisplayResult: React.Dispatch<React.SetStateAction<Ra
     <div className="form-wrapper">
       <form action="" onChange={(e) => handleFormChange(e)}>
         <select defaultValue='' name="year" id="">
-          {/* <option value="">Please choose a year</option> */}
           <option value="2023">2023</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
         </select>
         <select defaultValue='' name="filterField" id="">
-          {/* <option value="race">Please choose a filter field</option> */}
           <option value="race">RACES</option>
           <option value="team">TEAMS</option>
           <option value="driver">DRIVERS</option>

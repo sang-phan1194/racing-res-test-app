@@ -1,4 +1,4 @@
-import { RaceDataProps } from './types';
+import { RaceDataProps } from '../types';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart,
